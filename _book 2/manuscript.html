@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.3">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="刘则彰">
+<meta name="dcterms.date" content="2024-12-12">
+
+<title>文章 – Carrier Screening Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./data_analysis_second.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5e2915e4d4df5928b2b0a61215b328b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manuscript.html"><span class="chapter-title">文章</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Carrier Screening Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">目的</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">数据分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_analysis_first.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">携带率分析第一版</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_analysis_second.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">携带率分析第二版</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./manuscript.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">文章</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#摘要" id="toc-摘要" class="nav-link active" data-scroll-target="#摘要">摘要</a></li>
+  <li><a href="#前言" id="toc-前言" class="nav-link" data-scroll-target="#前言">1. 前言</a></li>
+  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献">参考文献</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">文章</span></h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">刘则彰 </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            华大基因
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 12, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="摘要" class="level2">
+<h2 class="anchored" data-anchor-id="摘要">摘要</h2>
+<p><strong>目的</strong>本研究旨在分析吉安地区单基因遗传病携带情况，评估10种和41种单基因遗传病携带者筛查的应用价值。<strong>方法</strong>回顾性分析2022年6月—2024年5月吉安地区xxx名孕妇及携带者配偶10种和41种单基因遗传病基因panel携带者筛查结果。<strong>结果</strong>。 <strong>讨论</strong> 。</p>
+<p><strong>关键词：</strong>吉安地区，单基因遗传病，携带者筛查，回顾性分析</p>
+</section>
+<section id="前言" class="level2">
+<h2 class="anchored" data-anchor-id="前言">1. 前言</h2>
+<p>出生缺陷是一个全球性的健康问题，不仅严重影响婴儿的发病率和死亡率，而且还对母亲的生活产生负面影响。2019年全球先天性出生缺陷总发病数和死亡数分别为852万和55万，是5岁以下儿童第四大死亡原因<span class="citation" data-cites="Kang2023">(<a href="#ref-Kang2023" role="doc-biblioref">L. Kang et al. 2023</a>)</span>。2012年的《中国出生缺陷防治报告》表明中国每年约有90万名出生缺陷婴儿<span class="citation" data-cites="中华人民共和国卫生部2012">(<a href="#ref-中华人民共和国卫生部2012" role="doc-biblioref">中华人民共和国卫生部 2012</a>)</span>。最近的一项系统研究显示，2020-21 年中国围产期出生缺陷患病率高达每万人 208.94 例，这强调了出生缺陷预防工作的重要性<span class="citation" data-cites="Kang2024">(<a href="#ref-Kang2024" role="doc-biblioref">L.-Y. Kang et al. 2024</a>)</span>。在我国，三级预防已经成为预防出生缺陷的重要手段。新华社报道，2024年相比五年前出生缺陷导致的婴儿死亡率、5岁以下儿童死亡率均降低了30%以上<span class="citation" data-cites="新华社2024">(<a href="#ref-新华社2024" role="doc-biblioref">新华社 2024</a>)</span>。</p>
+<p>遗传性疾病是导致出生缺陷的主要原因，包括染色体异常、单基因缺陷和多因素影响相关疾病<span class="citation" data-cites="Wojcik2018 Wojcik2021">(<a href="#ref-Wojcik2018" role="doc-biblioref">Wojcik et al. 2018</a>, <a href="#ref-Wojcik2021" role="doc-biblioref">2021</a>)</span>。人类基因组估计总共包含 20,000-25,000 个基因，而单基因疾病是指由其中一个基因的突变直接引起的疾病，目前OMIM收录的具有明确分子机制的单基因病已有六千余种，且大部分单基因病仍缺乏有效治疗手段<span class="citation" data-cites="International2004">(<a href="#ref-International2004" role="doc-biblioref">Human Genome Sequencing Consortium 2004</a>)</span>。单基因遗传病在家族中传递，其遗传模式可能是显性或隐性，且可能涉及常染色体或性染色体。其中，常染色体和X连锁隐性单基因遗传病能够通过表型正常的夫妻遗传给孩子。携带者筛查的核心目的在于识别那些面临遗传风险的夫妇，并为他们提供关于生育风险及决策的遗传咨询服务<span class="citation" data-cites="Antonarakis2019">(<a href="#ref-Antonarakis2019" role="doc-biblioref">Antonarakis 2019</a>)</span>。</p>
+<p>最早，携带者筛查应用于单个单基因遗传病，例如苯丙酮尿症(PKU) ，Tay-Sachs病<span class="citation" data-cites="Rose2018">(<a href="#ref-Rose2018" role="doc-biblioref">Rose and Wick 2018</a>)</span>。随着测序技术的不断发展，成千上万个体基因组变异数据库的建立，大量新致病基因和变异不断被发现，已经扩大了诊断可能性的范围，特别是对于罕见的隐性疾病。综合来看，这些进步为大规模、自愿的筛查计划做好了准备，为成功筛查不同人类群体中所有已知隐性基因引起的严重疾病的携带者提供了机会。近年来，国内外已经发布了多版指南和共识，用于指导携带者筛查工作开展<span class="citation" data-cites="Gregg2021 Sagaser2023 中国妇幼保健协会生育保健分会2024">(<a href="#ref-Gregg2021" role="doc-biblioref">Gregg et al. 2021</a>; <a href="#ref-Sagaser2023" role="doc-biblioref">Sagaser et al. 2023</a>; <a href="#ref-中国妇幼保健协会生育保健分会2024" role="doc-biblioref">中国妇幼保健协会生育保健分会 2023</a>)</span>。目前，已有部分研究在不同人群的携带者筛查工作中应用了不同的基因panel，例如100种单基因遗传病携带者筛查用于甘肃省887对育龄夫妇<span class="citation" data-cites="刘芙蓉2024">(<a href="#ref-刘芙蓉2024" role="doc-biblioref">刘芙蓉 et al. 2024</a>)</span>，155种单基因病携带者筛查应用于宜春市324对夫妇<span class="citation" data-cites="彭伟2023">(<a href="#ref-彭伟2023" role="doc-biblioref">彭伟 et al. 2023</a>)</span>，223个基因携带者筛查用于12个临床中心33104例受检者<span class="citation" data-cites="侯伟2024">(<a href="#ref-侯伟2024" role="doc-biblioref">侯伟 et al. 2024</a>)</span>。然而，我国各地经济发展、医疗基础、教育水平等存在显著的差异，专家共识建议根据提供携带者筛查的医疗机构和当地的实际情况来确定筛查的疾病数量<span class="citation" data-cites="中国妇幼保健协会生育保健分会2024">(<a href="#ref-中国妇幼保健协会生育保健分会2024" role="doc-biblioref">中国妇幼保健协会生育保健分会 2023</a>)</span>。但是，在经济或医疗条件有限的地区，不同少数常见病种基因panel在大人群携带者筛查实践中的应用与比较还鲜有报道。</p>
+<p>因此，本研究拟回顾性分析吉安市10种和41种单基因病携带者筛查大人群实践数据。期望通过这一大规模、单中心实践数据揭示吉安地区单基因遗传病和基因突变的分布特征，比较不同基因panel应用价值。结合两种基因panel的实践结果，为更好制定经济或医疗条件有限的地区单基因病携带者筛查策略提供理论依据。</p>
+</section>
+<section id="参考文献" class="level2">
+<h2 class="anchored" data-anchor-id="参考文献">参考文献</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Antonarakis2019" class="csl-entry" role="listitem">
+Antonarakis, Stylianos E. 2019. <span>“Carrier Screening for Recessive Disorders.”</span> <em>Nature Reviews Genetics</em> 20 (9): 549–61. <a href="https://doi.org/10.1038/s41576-019-0134-2">https://doi.org/10.1038/s41576-019-0134-2</a>.
+</div>
+<div id="ref-Gregg2021" class="csl-entry" role="listitem">
+Gregg, Anthony R., Mahmoud Aarabi, Susan Klugman, Natalia T. Leach, Michael T. Bashford, Tamar Goldwaser, Emily Chen, et al. 2021. <span>“Screening for Autosomal Recessive and X-Linked Conditions During Pregnancy and Preconception: A Practice Resource of the American College of Medical Genetics and Genomics (ACMG).”</span> <em>Genetics in Medicine</em> 23 (10): 1793–1806. <a href="https://doi.org/10.1038/s41436-021-01203-z">https://doi.org/10.1038/s41436-021-01203-z</a>.
+</div>
+<div id="ref-International2004" class="csl-entry" role="listitem">
+Human Genome Sequencing Consortium, "International. 2004. <span>“Finishing the Euchromatic Sequence of the Human Genome.”</span> <em>Nature</em> 431 (7011): 931–45. <a href="https://doi.org/10.1038/nature03001">https://doi.org/10.1038/nature03001</a>.
+</div>
+<div id="ref-Kang2023" class="csl-entry" role="listitem">
+Kang, Liangyu, Guiying Cao, Wenzhan Jing, Jue Liu, and Min Liu. 2023. <span>“Global, Regional, and National Incidence and Mortality of Congenital Birth Defects from 1990 to 2019.”</span> <em>European Journal of Pediatrics</em> 182 (4): 1781–92. <a href="https://doi.org/10.1007/s00431-023-04865-w">https://doi.org/10.1007/s00431-023-04865-w</a>.
+</div>
+<div id="ref-Kang2024" class="csl-entry" role="listitem">
+Kang, Liang-Yu, Zi-Rui Guo, Wei-Jing Shang, Gui-Ying Cao, Yi-Ping Zhang, Qiao-Mei Wang, Hai-Ping Shen, Wan-Nian Liang, and Min Liu. 2024. <span>“Perinatal Prevalence of Birth Defects in&nbsp;the Mainland&nbsp;of China, 2000<span></span>2021: A Systematic Review and Meta-Analysis.”</span> <em>World Journal of Pediatrics</em> 20 (7): 669–81. <a href="https://doi.org/10.1007/s12519-023-00786-8">https://doi.org/10.1007/s12519-023-00786-8</a>.
+</div>
+<div id="ref-Rose2018" class="csl-entry" role="listitem">
+Rose, Nancy C., and Myra Wick. 2018. <span>“Carrier Screening for Single Gene Disorders.”</span> <em>Seminars in Fetal and Neonatal Medicine</em> 23 (2): 78–84. <a href="https://doi.org/10.1016/j.siny.2017.06.001">https://doi.org/10.1016/j.siny.2017.06.001</a>.
+</div>
+<div id="ref-Sagaser2023" class="csl-entry" role="listitem">
+Sagaser, Katelynn G., Jennifer Malinowski, Lauren Westerfield, Jennifer Proffitt, Melissa A. Hicks, Tomi L. Toler, Karin J. Blakemore, Blair K. Stevens, and Lisa M. Oakes. 2023. <span>“Expanded Carrier Screening for Reproductive Risk Assessment: An Evidence<span>-</span>Based Practice Guideline from the National Society of Genetic Counselors.”</span> <em>Journal of Genetic Counseling</em> 32 (3): 540–57. <a href="https://doi.org/10.1002/jgc4.1676">https://doi.org/10.1002/jgc4.1676</a>.
+</div>
+<div id="ref-Wojcik2018" class="csl-entry" role="listitem">
+Wojcik, Monica H., Talia S. Schwartz, Inbar Yamin, Heather L. Edward, Casie A. Genetti, Meghan C. Towne, and Pankaj B. Agrawal. 2018. <span>“Genetic Disorders and Mortality in Infancy and Early Childhood: Delayed Diagnoses and Missed Opportunities.”</span> <em>Genetics in Medicine</em> 20 (11): 1396–1404. <a href="https://doi.org/10.1038/gim.2018.17">https://doi.org/10.1038/gim.2018.17</a>.
+</div>
+<div id="ref-Wojcik2021" class="csl-entry" role="listitem">
+Wojcik, Monica H., Rachel Stadelmaier, Dominique Heinke, Ingrid A. Holm, Wen-Hann Tan, and Pankaj B. Agrawal. 2021. <span>“The Unrecognized Mortality Burden of Genetic Disorders in Infancy.”</span> <em>American Journal of Public Health</em> 111 (S2): S156–62. <a href="https://doi.org/10.2105/ajph.2021.306275">https://doi.org/10.2105/ajph.2021.306275</a>.
+</div>
+<div id="ref-中华人民共和国卫生部2012" class="csl-entry" role="listitem">
+中华人民共和国卫生部. 2012. <span>“《中国出生缺陷防治报告（2012）》.”</span> <em>中华人民共和国卫生部</em>. <a href="https://www.gov.cn/gzdt/att/att/site1/20120912/1c6f6506c7f811bacf9301.pdf">https://www.gov.cn/gzdt/att/att/site1/20120912/1c6f6506c7f811bacf9301.pdf</a>.
+</div>
+<div id="ref-中国妇幼保健协会生育保健分会2024" class="csl-entry" role="listitem">
+中国妇幼保健协会生育保健分会. 2023. <span>“针对生育人群的携带者筛查实验室和临床实践专家共识.”</span> <em>中华生殖与避孕杂志</em> 44 (2): 109–15. <a href="https://doi.org/10.3760/cma.j.cn101441-20230829-00094">https://doi.org/10.3760/cma.j.cn101441-20230829-00094</a>.
+</div>
+<div id="ref-侯伟2024" class="csl-entry" role="listitem">
+侯伟, 付晓琳, 谢潇潇, 张春燕, 边佳昕, 毛翛, 文娟, et al. 2024. <span>“中国人群33104例单基因病携带者筛查的多中心研究.”</span> <em>南方医科大学学报</em> 44 (6): 1015–23. <a href="https://doi.org/10.12122/j.issn.1673-4254.2024.06.01">https://doi.org/10.12122/j.issn.1673-4254.2024.06.01</a>.
+</div>
+<div id="ref-刘芙蓉2024" class="csl-entry" role="listitem">
+刘芙蓉, 张钏, 周秉博, 陈雪, 田芯瑗, 马盼盼, 惠玲, and 郝胜菊. 2024. <span>“甘肃地区育龄夫妇基因扩展性携带者筛查研究.”</span> <em>国际生殖健康/计划生育杂志</em> 43 (4): 293–97. <a href="https://doi.org/10.12280/gjszjk.20240121">https://doi.org/10.12280/gjszjk.20240121</a>.
+</div>
+<div id="ref-彭伟2023" class="csl-entry" role="listitem">
+彭伟, 段超群, 李清, 刘珍, 韩艳, and 袁照清. 2023. <span>“单基因隐性遗传疾病扩展性携带者筛查的临床应用研究.”</span> <em>医学理论与实践</em> 36 (19): 3263–66. <a href="https://doi.org/10.19381/j.issn.1001-7585.2023.19.007">https://doi.org/10.19381/j.issn.1001-7585.2023.19.007</a>.
+</div>
+<div id="ref-新华社2024" class="csl-entry" role="listitem">
+新华社. 2024. <span>“我国出生缺陷导致的婴儿死亡率5年降低超三成.”</span> <em>新华网</em>. <a href="https://www.gov.cn/lianbo/bumen/202403/content_6940271.htm">https://www.gov.cn/lianbo/bumen/202403/content_6940271.htm</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./data_analysis_second.html" class="pagination-link" aria-label="携带率分析第二版">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">携带率分析第二版</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

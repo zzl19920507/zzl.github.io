@@ -85,5 +85,35 @@
       "数据分析",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>携带率分析第二版</span>"
     ]
+  },
+  {
+    "objectID": "manuscript.html",
+    "href": "manuscript.html",
+    "title": "文章",
+    "section": "",
+    "text": "摘要\n目的本研究旨在分析吉安地区单基因遗传病携带情况，评估10种和41种单基因遗传病携带者筛查的应用价值。方法回顾性分析2022年6月—2024年5月吉安地区xxx名孕妇及携带者配偶10种和41种单基因遗传病基因panel携带者筛查结果。结果。 讨论 。\n关键词：吉安地区，单基因遗传病，携带者筛查，回顾性分析",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>文章</span>"
+    ]
+  },
+  {
+    "objectID": "manuscript.html#前言",
+    "href": "manuscript.html#前言",
+    "title": "文章",
+    "section": "1. 前言",
+    "text": "1. 前言\n出生缺陷是一个全球性的健康问题，不仅严重影响婴儿的发病率和死亡率，而且还对母亲的生活产生负面影响。2019年全球先天性出生缺陷总发病数和死亡数分别为852万和55万，是5岁以下儿童第四大死亡原因(L. Kang et al. 2023)。2012年的《中国出生缺陷防治报告》表明中国每年约有90万名出生缺陷婴儿(中华人民共和国卫生部 2012)。最近的一项系统研究显示，2020-21 年中国围产期出生缺陷患病率高达每万人 208.94 例，这强调了出生缺陷预防工作的重要性(L.-Y. Kang et al. 2024)。在我国，三级预防已经成为预防出生缺陷的重要手段。新华社报道，2024年相比五年前出生缺陷导致的婴儿死亡率、5岁以下儿童死亡率均降低了30%以上(新华社 2024)。\n遗传性疾病是导致出生缺陷的主要原因，包括染色体异常、单基因缺陷和多因素影响相关疾病(Wojcik et al. 2018, 2021)。人类基因组估计总共包含 20,000-25,000 个基因，而单基因疾病是指由其中一个基因的突变直接引起的疾病，目前OMIM收录的具有明确分子机制的单基因病已有六千余种，且大部分单基因病仍缺乏有效治疗手段(Human Genome Sequencing Consortium 2004)。单基因遗传病在家族中传递，其遗传模式可能是显性或隐性，且可能涉及常染色体或性染色体。其中，常染色体和X连锁隐性单基因遗传病能够通过表型正常的夫妻遗传给孩子。携带者筛查的核心目的在于识别那些面临遗传风险的夫妇，并为他们提供关于生育风险及决策的遗传咨询服务(Antonarakis 2019)。\n最早，携带者筛查应用于单个单基因遗传病，例如苯丙酮尿症(PKU) ，Tay-Sachs病(Rose and Wick 2018)。随着测序技术的不断发展，成千上万个体基因组变异数据库的建立，大量新致病基因和变异不断被发现，已经扩大了诊断可能性的范围，特别是对于罕见的隐性疾病。综合来看，这些进步为大规模、自愿的筛查计划做好了准备，为成功筛查不同人类群体中所有已知隐性基因引起的严重疾病的携带者提供了机会。近年来，国内外已经发布了多版指南和共识，用于指导携带者筛查工作开展(Gregg et al. 2021; Sagaser et al. 2023; 中国妇幼保健协会生育保健分会 2023)。目前，已有部分研究在不同人群的携带者筛查工作中应用了不同的基因panel，例如100种单基因遗传病携带者筛查用于甘肃省887对育龄夫妇(刘芙蓉 et al. 2024)，155种单基因病携带者筛查应用于宜春市324对夫妇(彭伟 et al. 2023)，223个基因携带者筛查用于12个临床中心33104例受检者(侯伟 et al. 2024)。然而，我国各地经济发展、医疗基础、教育水平等存在显著的差异，专家共识建议根据提供携带者筛查的医疗机构和当地的实际情况来确定筛查的疾病数量(中国妇幼保健协会生育保健分会 2023)。但是，在经济或医疗条件有限的地区，不同少数常见病种基因panel在大人群携带者筛查实践中的应用与比较还鲜有报道。\n因此，本研究拟回顾性分析吉安市10种和41种单基因病携带者筛查大人群实践数据。期望通过这一大规模、单中心实践数据揭示吉安地区单基因遗传病和基因突变的分布特征，比较不同基因panel应用价值。结合两种基因panel的实践结果，为更好制定经济或医疗条件有限的地区单基因病携带者筛查策略提供理论依据。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>文章</span>"
+    ]
+  },
+  {
+    "objectID": "manuscript.html#参考文献",
+    "href": "manuscript.html#参考文献",
+    "title": "文章",
+    "section": "参考文献",
+    "text": "参考文献\n\n\n\n\nAntonarakis, Stylianos E. 2019. “Carrier Screening for Recessive Disorders.” Nature Reviews Genetics 20 (9): 549–61. https://doi.org/10.1038/s41576-019-0134-2.\n\n\nGregg, Anthony R., Mahmoud Aarabi, Susan Klugman, Natalia T. Leach, Michael T. Bashford, Tamar Goldwaser, Emily Chen, et al. 2021. “Screening for Autosomal Recessive and X-Linked Conditions During Pregnancy and Preconception: A Practice Resource of the American College of Medical Genetics and Genomics (ACMG).” Genetics in Medicine 23 (10): 1793–1806. https://doi.org/10.1038/s41436-021-01203-z.\n\n\nHuman Genome Sequencing Consortium, \"International. 2004. “Finishing the Euchromatic Sequence of the Human Genome.” Nature 431 (7011): 931–45. https://doi.org/10.1038/nature03001.\n\n\nKang, Liangyu, Guiying Cao, Wenzhan Jing, Jue Liu, and Min Liu. 2023. “Global, Regional, and National Incidence and Mortality of Congenital Birth Defects from 1990 to 2019.” European Journal of Pediatrics 182 (4): 1781–92. https://doi.org/10.1007/s00431-023-04865-w.\n\n\nKang, Liang-Yu, Zi-Rui Guo, Wei-Jing Shang, Gui-Ying Cao, Yi-Ping Zhang, Qiao-Mei Wang, Hai-Ping Shen, Wan-Nian Liang, and Min Liu. 2024. “Perinatal Prevalence of Birth Defects in the Mainland of China, 20002021: A Systematic Review and Meta-Analysis.” World Journal of Pediatrics 20 (7): 669–81. https://doi.org/10.1007/s12519-023-00786-8.\n\n\nRose, Nancy C., and Myra Wick. 2018. “Carrier Screening for Single Gene Disorders.” Seminars in Fetal and Neonatal Medicine 23 (2): 78–84. https://doi.org/10.1016/j.siny.2017.06.001.\n\n\nSagaser, Katelynn G., Jennifer Malinowski, Lauren Westerfield, Jennifer Proffitt, Melissa A. Hicks, Tomi L. Toler, Karin J. Blakemore, Blair K. Stevens, and Lisa M. Oakes. 2023. “Expanded Carrier Screening for Reproductive Risk Assessment: An Evidence-Based Practice Guideline from the National Society of Genetic Counselors.” Journal of Genetic Counseling 32 (3): 540–57. https://doi.org/10.1002/jgc4.1676.\n\n\nWojcik, Monica H., Talia S. Schwartz, Inbar Yamin, Heather L. Edward, Casie A. Genetti, Meghan C. Towne, and Pankaj B. Agrawal. 2018. “Genetic Disorders and Mortality in Infancy and Early Childhood: Delayed Diagnoses and Missed Opportunities.” Genetics in Medicine 20 (11): 1396–1404. https://doi.org/10.1038/gim.2018.17.\n\n\nWojcik, Monica H., Rachel Stadelmaier, Dominique Heinke, Ingrid A. Holm, Wen-Hann Tan, and Pankaj B. Agrawal. 2021. “The Unrecognized Mortality Burden of Genetic Disorders in Infancy.” American Journal of Public Health 111 (S2): S156–62. https://doi.org/10.2105/ajph.2021.306275.\n\n\n中华人民共和国卫生部. 2012. “《中国出生缺陷防治报告（2012）》.” 中华人民共和国卫生部. https://www.gov.cn/gzdt/att/att/site1/20120912/1c6f6506c7f811bacf9301.pdf.\n\n\n中国妇幼保健协会生育保健分会. 2023. “针对生育人群的携带者筛查实验室和临床实践专家共识.” 中华生殖与避孕杂志 44 (2): 109–15. https://doi.org/10.3760/cma.j.cn101441-20230829-00094.\n\n\n侯伟, 付晓琳, 谢潇潇, 张春燕, 边佳昕, 毛翛, 文娟, et al. 2024. “中国人群33104例单基因病携带者筛查的多中心研究.” 南方医科大学学报 44 (6): 1015–23. https://doi.org/10.12122/j.issn.1673-4254.2024.06.01.\n\n\n刘芙蓉, 张钏, 周秉博, 陈雪, 田芯瑗, 马盼盼, 惠玲, and 郝胜菊. 2024. “甘肃地区育龄夫妇基因扩展性携带者筛查研究.” 国际生殖健康/计划生育杂志 43 (4): 293–97. https://doi.org/10.12280/gjszjk.20240121.\n\n\n彭伟, 段超群, 李清, 刘珍, 韩艳, and 袁照清. 2023. “单基因隐性遗传疾病扩展性携带者筛查的临床应用研究.” 医学理论与实践 36 (19): 3263–66. https://doi.org/10.19381/j.issn.1001-7585.2023.19.007.\n\n\n新华社. 2024. “我国出生缺陷导致的婴儿死亡率5年降低超三成.” 新华网. https://www.gov.cn/lianbo/bumen/202403/content_6940271.htm.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>文章</span>"
+    ]
   }
 ]
