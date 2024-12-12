@@ -1,0 +1,3724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.3">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="刘则彰">
+<meta name="dcterms.date" content="2024-12-12">
+
+<title>携带率分析第二版 – Carrier Screening Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./data_analysis_first.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5e2915e4d4df5928b2b0a61215b328b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_analysis_first.html">数据分析</a></li><li class="breadcrumb-item"><a href="./data_analysis_second.html"><span class="chapter-title">携带率分析第二版</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Carrier Screening Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">目的</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">数据分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_analysis_first.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">携带率分析第一版</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_analysis_second.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">携带率分析第二版</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#数据读取" id="toc-数据读取" class="nav-link active" data-scroll-target="#数据读取">数据读取</a>
+  <ul class="collapse">
+  <li><a href="#检测结果数据读取" id="toc-检测结果数据读取" class="nav-link" data-scroll-target="#检测结果数据读取">检测结果数据读取</a></li>
+  <li><a href="#检测结果统计" id="toc-检测结果统计" class="nav-link" data-scroll-target="#检测结果统计">检测结果统计</a></li>
+  </ul></li>
+  <li><a href="#数据分析" id="toc-数据分析" class="nav-link" data-scroll-target="#数据分析">数据分析</a>
+  <ul class="collapse">
+  <li><a href="#基因分布情况分析" id="toc-基因分布情况分析" class="nav-link" data-scroll-target="#基因分布情况分析">基因分布情况分析</a></li>
+  <li><a href="#两种panel结果比较" id="toc-两种panel结果比较" class="nav-link" data-scroll-target="#两种panel结果比较">两种panel结果比较</a></li>
+  <li><a href="#位点分布分析" id="toc-位点分布分析" class="nav-link" data-scroll-target="#位点分布分析">位点分布分析</a></li>
+  <li><a href="#随访结果分析" id="toc-随访结果分析" class="nav-link" data-scroll-target="#随访结果分析">随访结果分析</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_analysis_first.html">数据分析</a></li><li class="breadcrumb-item"><a href="./data_analysis_second.html"><span class="chapter-title">携带率分析第二版</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">携带率分析第二版</span></h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">刘则彰 </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            华大基因
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 12, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="数据读取" class="level2">
+<h2 class="anchored" data-anchor-id="数据读取">数据读取</h2>
+<section id="检测结果数据读取" class="level3">
+<h3 class="anchored" data-anchor-id="检测结果数据读取">检测结果数据读取</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "数据读取完成！"</code></pre>
+</div>
+</div>
+</section>
+<section id="检测结果统计" class="level3">
+<h3 class="anchored" data-anchor-id="检测结果统计">检测结果统计</h3>
+<div class="cell">
+<div id="tbl-pos_rate_chisq" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pos_rate_chisq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: 10种与41单基因病基因检测结果统计
+</figcaption>
+<div aria-describedby="tbl-pos_rate_chisq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">positive</th>
+<th style="text-align: right;">positive_rate</th>
+<th style="text-align: left;">chisq_P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">preg10</td>
+<td style="text-align: right;">22415</td>
+<td style="text-align: right;">4010</td>
+<td style="text-align: right;">17.89</td>
+<td style="text-align: left;">0e+00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">preg41</td>
+<td style="text-align: right;">30483</td>
+<td style="text-align: right;">10377</td>
+<td style="text-align: right;">34.04</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="数据分析" class="level2">
+<h2 class="anchored" data-anchor-id="数据分析">数据分析</h2>
+<section id="基因分布情况分析" class="level3">
+<h3 class="anchored" data-anchor-id="基因分布情况分析">基因分布情况分析</h3>
+<div class="cell">
+<div id="tbl-preg10_gene" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-preg10_gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: 10种单基因病基因携带率
+</figcaption>
+<div aria-describedby="tbl-preg10_gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">基因</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Proportion</th>
+<th style="text-align: right;">Carrier_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HBA1/HBA2</td>
+<td style="text-align: right;">1296</td>
+<td style="text-align: right;">32.32</td>
+<td style="text-align: right;">5.78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ATP7B</td>
+<td style="text-align: right;">508</td>
+<td style="text-align: right;">12.67</td>
+<td style="text-align: right;">2.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HBB</td>
+<td style="text-align: right;">506</td>
+<td style="text-align: right;">12.62</td>
+<td style="text-align: right;">2.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PAH</td>
+<td style="text-align: right;">417</td>
+<td style="text-align: right;">10.40</td>
+<td style="text-align: right;">1.86</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMN1</td>
+<td style="text-align: right;">371</td>
+<td style="text-align: right;">9.25</td>
+<td style="text-align: right;">1.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCA2</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">6.03</td>
+<td style="text-align: right;">1.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MMUT</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">4.54</td>
+<td style="text-align: right;">0.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GAA</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">4.19</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TYR</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">3.99</td>
+<td style="text-align: right;">0.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MMACHC</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">3.99</td>
+<td style="text-align: right;">0.71</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-preg41_gene" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-preg41_gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.3: 41种单基因病基因携带率
+</figcaption>
+<div aria-describedby="tbl-preg41_gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">基因</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Proportion</th>
+<th style="text-align: right;">Carrier_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HBA1/HBA2</td>
+<td style="text-align: right;">1721</td>
+<td style="text-align: right;">16.58</td>
+<td style="text-align: right;">5.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GJB2</td>
+<td style="text-align: right;">709</td>
+<td style="text-align: right;">6.83</td>
+<td style="text-align: right;">2.33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ATP7B</td>
+<td style="text-align: right;">692</td>
+<td style="text-align: right;">6.67</td>
+<td style="text-align: right;">2.27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HBB</td>
+<td style="text-align: right;">666</td>
+<td style="text-align: right;">6.42</td>
+<td style="text-align: right;">2.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SLC26A4</td>
+<td style="text-align: right;">658</td>
+<td style="text-align: right;">6.34</td>
+<td style="text-align: right;">2.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GALC</td>
+<td style="text-align: right;">647</td>
+<td style="text-align: right;">6.23</td>
+<td style="text-align: right;">2.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAH</td>
+<td style="text-align: right;">591</td>
+<td style="text-align: right;">5.70</td>
+<td style="text-align: right;">1.94</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SMN1</td>
+<td style="text-align: right;">495</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">1.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ABCG5</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">2.89</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ETFDH</td>
+<td style="text-align: right;">280</td>
+<td style="text-align: right;">2.70</td>
+<td style="text-align: right;">0.92</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PTS</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">2.41</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MMACHC</td>
+<td style="text-align: right;">238</td>
+<td style="text-align: right;">2.29</td>
+<td style="text-align: right;">0.78</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MT-RNR1</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">2.23</td>
+<td style="text-align: right;">0.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MMUT</td>
+<td style="text-align: right;">224</td>
+<td style="text-align: right;">2.16</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCA2</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">1.93</td>
+<td style="text-align: right;">0.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GAA</td>
+<td style="text-align: right;">176</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">0.58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CFTR</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">1.48</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPHP3</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: right;">1.43</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SMPD1</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GCDH</td>
+<td style="text-align: right;">137</td>
+<td style="text-align: right;">1.32</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ALPL</td>
+<td style="text-align: right;">137</td>
+<td style="text-align: right;">1.32</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IVD</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">1.27</td>
+<td style="text-align: right;">0.43</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COL7A1</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PEX1</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">0.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G6PC</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACADVL</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FANCA</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DHCR7</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ACADM</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ARSA</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EVC2</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPHS1</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NAGLU</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPC1</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FANCI</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PCCA</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PCCB</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ABCG8</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COL4A4</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COL4A3</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DMD</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AMT</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MLC1</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GLB1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GLDC</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="两种panel结果比较" class="level3">
+<h3 class="anchored" data-anchor-id="两种panel结果比较">两种panel结果比较</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-gene" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data_analysis_second_files/figure-html/fig-gene-1.png" class="img-fluid figure-img" width="4200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gene-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: 两种基因panel基因携带率对比
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="位点分布分析" class="level3">
+<h3 class="anchored" data-anchor-id="位点分布分析">位点分布分析</h3>
+<div class="cell">
+<div id="tbl-preg10_loci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-preg10_loci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.4: 10种基因病基因位点携带率
+</figcaption>
+<div aria-describedby="tbl-preg10_loci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 68%">
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">核苷酸变化（氨基酸变化）</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Proportion</th>
+<th style="text-align: right;">Carrier_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">–SEA</td>
+<td style="text-align: right;">546</td>
+<td style="text-align: right;">13.62</td>
+<td style="text-align: right;">2.44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-α3.7</td>
+<td style="text-align: right;">494</td>
+<td style="text-align: right;">12.32</td>
+<td style="text-align: right;">2.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EX7 DEL</td>
+<td style="text-align: right;">371</td>
+<td style="text-align: right;">9.25</td>
+<td style="text-align: right;">1.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-α4.2</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">3.62</td>
+<td style="text-align: right;">0.65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1363A&gt;G(p.Arg455Gly)</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">2.77</td>
+<td style="text-align: right;">0.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1174T&gt;A(p.Phe392Ile)</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">2.34</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2333G&gt;T(p.Arg778Leu)</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">2.27</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.464G&gt;A(p.Arg155His)</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">2.22</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.316-197C&gt;T</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.316-197C&gt;T(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[IVS-II-654 (C&gt;T) beta+])</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">1.87</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2975C&gt;T(p.Pro992Leu)</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">1.77</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.126_129delCTTT(p.Phe42Leufs*19)</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.609G&gt;A(p.Trp203*)</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">1.65</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2755C&gt;G(p.Arg919Gly)</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">1.45</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.126_129delCTTT(p.Phe42Leufs*19</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codons 41/42 (-TTCT) beta0])</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.-78A&gt;G(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[-28 (A&gt;G) beta+])</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.52A&gt;T(p.Lys18*</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codon 17 (A&gt;T) beta0])</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1663G&gt;A(p.Ala555Thr)</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.52A&gt;T(p.Lys18*)</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.498C&gt;G(p.Tyr166*)</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.-78A&gt;G</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.323G&gt;A(p.Arg108His)</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.369C&gt;G(p.His123Gln</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb Westmead])</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.369C&gt;G(p.His123Gln)</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.721C&gt;T(p.Arg241Cys)</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1199G&gt;T(p.Trp400Leu)</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.658_660delAAG(p.Lys220del)</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.406C&gt;T(p.Arg136*)</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.929_930insC(p.Arg311Lysfs*7)</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2804C&gt;T(p.Thr935Met)</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2605G&gt;A(p.Gly869Arg)</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.503G&gt;A(p.Arg168Gln)</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1159A&gt;C(p.Thr387Pro)</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1208G&gt;A(p.Arg403Gln)</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.728G&gt;A(p.Arg243Gln)</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.346C&gt;T(p.Arg116*)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2304_2305insC(p.Met769Hisfs*26)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1426A&gt;G(p.Asn476Asp)</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3443T&gt;C(p.Ile1148Thr)</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.632C&gt;T(p.Pro211Leu)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2180T&gt;C(p.Leu727Pro)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.482G&gt;A(p.Arg161Gln)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.527G&gt;A(p.Arg176Gln)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1349C&gt;A(p.Thr450Lys)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.230G&gt;A(p.Arg77Gln)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.896G&gt;A(p.Arg299His)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.567dupT(p.Ile190Tyrfs*13)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3884C&gt;T(p.Ala1295Val)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3715G&gt;T(p.Val1239Phe)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.-100G&gt;A</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.121G&gt;A(p.Gly41Arg)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.510T&gt;A(p.His170Gln)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1223G&gt;A(p.Arg408Gln)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.377T&gt;C(p.Leu126Pro)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.427T&gt;C(p.<em>143Glnext</em>31</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Hb Constant Spring])</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2972C&gt;T(p.Thr991Met)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3451C&gt;T(p.Arg1151Cys)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.398_399delAA(p.Gln133Argfs*5)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.427T&gt;C(p.<em>143Glnext</em>31)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.525_526insA(p.Val176Serfs*28)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2662A&gt;C(p.Thr888Pro)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.838G&gt;A(p.Glu280Lys)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2621C&gt;T(p.Ala874Val)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1432G&gt;A(p.Gly478Arg)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1935C&gt;A(p.Asp645Glu)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.808-3C&gt;G</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.671G&gt;A(p.Arg224Gln)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.232_233insGGG(p.Arg77_Glu78insGly)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.80A&gt;G(p.Gln27Arg)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.832C&gt;T(p.Arg278*)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1068C&gt;A(p.Tyr356*)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.85_86insC(p.Leu29Profs*16</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codons 27/28 (+C) beta0])</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1843G&gt;A(p.Gly615Arg)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.331C&gt;T(p.Arg111*)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.980dupT(p.Glu328Argfs*21)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.925T&gt;G(p.Trp309Gly)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3982G&gt;A(p.Ala1328Thr)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2238G&gt;C(p.Trp746Cys)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1677-1G&gt;A</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.377T&gt;C(p.Leu126Pro</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb Quong Sze II])</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.217dupA(p.Ser73Lysfs*2</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Codons 71/72 (+A) beta0])</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2183A&gt;G(p.Asn728Ser)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2662G&gt;T(p.Glu888*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.217dupA(p.Ser73Lysfs*2)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3532A&gt;G(p.Thr1178Ala)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2828G&gt;A(p.Gly943Asp)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1280G&gt;A(p.Gly427Asp)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1927G&gt;A(p.Gly643Arg)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chinese</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.208_210delTCT(p.Ser70del)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.315C&gt;G(p.Tyr105*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.907delT(p.Ser303Profs*38)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.-100G&gt;A(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[-50 (G&gt;A) beta+])</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.341T&gt;A(p.Val114Glu</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Hb Twin Peaks])</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.505C&gt;A(p.Arg169Ser)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1106G&gt;A(p.Arg369His)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1139C&gt;T(p.Thr380Met)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1356delC(p.Ser454Alafs*23)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.85_86insC(p.Leu29Profs*16)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.533G&gt;A(p.Arg178His)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1802C&gt;T(p.Ser601Leu)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.796C&gt;T(p.Pro266Ser)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.425A&gt;T(p.Lys142Met)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1265G&gt;A(p.Arg422Gln)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2939G&gt;A(p.Cys980Tyr)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2957C&gt;T(p.Ser986Phe)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1238G&gt;C(p.Arg413Pro)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3587A&gt;G(p.Asp1196Gly)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.940C&gt;A(p.Pro314Thr)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3809A&gt;G(p.Asn1270Ser)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1630_1631delinsTA(p.Gly544*)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2237G&gt;A(p.Trp746*)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1162G&gt;A(p.Val388Met)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2297C&gt;T(p.Thr766Met)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1160C&gt;T(p.Thr387Met)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1037-7T&gt;A</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.682C&gt;T(p.Arg228*)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.442-1G&gt;A</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3452G&gt;A(p.Arg1151His)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.79G&gt;A(p.Glu27Lys)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1411_1414delGAGA(p.Glu471Profs*5)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3106G&gt;A(p.Val1036Ile)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1978C&gt;T(p.Arg660Cys)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.611A&gt;G(p.Tyr204Cys)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.729_730insTT(p.Asp244Leufs*39)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.79G&gt;A(p.Glu27Lys</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb Caserta])</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2105G&gt;A(p.Arg702His)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.130G&gt;T(p.Glu44*</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codon 43 (G&gt;T) beta0])</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-preg41_loci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-preg41_loci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.5: 41种基因病基因位点携带率
+</figcaption>
+<div aria-describedby="tbl-preg41_loci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 68%">
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">核苷酸变化（氨基酸变化）</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Proportion</th>
+<th style="text-align: right;">Carrier_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">–SEA</td>
+<td style="text-align: right;">774</td>
+<td style="text-align: right;">7.46</td>
+<td style="text-align: right;">2.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-α3.7</td>
+<td style="text-align: right;">630</td>
+<td style="text-align: right;">6.07</td>
+<td style="text-align: right;">2.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EX7 DEL</td>
+<td style="text-align: right;">495</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">1.62</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1901T&gt;C(p.Leu634Ser)</td>
+<td style="text-align: right;">487</td>
+<td style="text-align: right;">4.69</td>
+<td style="text-align: right;">1.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.235delC(p.Leu79Cysfs*3)</td>
+<td style="text-align: right;">479</td>
+<td style="text-align: right;">4.62</td>
+<td style="text-align: right;">1.57</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.919-2A&gt;G</td>
+<td style="text-align: right;">308</td>
+<td style="text-align: right;">2.97</td>
+<td style="text-align: right;">1.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.316-197C&gt;T(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[IVS-II-654 (C&gt;T) beta+])</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">1.99</td>
+<td style="text-align: right;">0.68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-α4.2</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">1.79</td>
+<td style="text-align: right;">0.61</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1166G&gt;A(p.Arg389His)</td>
+<td style="text-align: right;">161</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">0.53</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">m.1095T&gt;C</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">1.44</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.126_129delCTTT(p.Phe42Leufs*19</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codons 41/42 (-TTCT) beta0])</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">0.48</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.259C&gt;T(p.Pro87Ser)</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">1.39</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.464G&gt;A(p.Arg155His)</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">1.31</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.299_300delAT(p.His100Argfs*14)</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1174T&gt;A(p.Phe392Ile)</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2333G&gt;T(p.Arg778Leu)</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">0.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2975C&gt;T(p.Pro992Leu)</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.-78A&gt;G(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[-28 (A&gt;G) beta+])</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1229C&gt;T(p.Thr410Met)</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.52A&gt;T(p.Lys18*</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Codon 17 (A&gt;T) beta0])</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2755C&gt;G(p.Arg919Gly)</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.995C&gt;G(p.Pro332Arg)</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.609G&gt;A(p.Trp203*)</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.369C&gt;G(p.His123Gln</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Hb Westmead])</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m.1555A&gt;G</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1663G&gt;A(p.Ala555Thr)</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2310+1G&gt;A</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.697G&gt;C(p.Val233Leu)</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.640A&gt;G(p.Thr214Ala)</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.770A&gt;G(p.Tyr257Cys)</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2804C&gt;T(p.Thr935Met)</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.658_660delAAG(p.Lys220del)</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.136G&gt;T(p.Asp46Tyr)</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3443T&gt;C(p.Ile1148Thr)</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1336C&gt;T(p.Arg446*)</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.721C&gt;T(p.Arg241Cys)</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1592G&gt;A(p.Arg531His)</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.920C&gt;G(p.Ser307Cys)</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2605G&gt;A(p.Gly869Arg)</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.498C&gt;G(p.Tyr166*)</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1085G&gt;A(p.Gly362Glu)</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.648G&gt;T(p.Leu216Leu)</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.406C&gt;T(p.Arg136*)</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.751C&gt;T(p.Gln251*)</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.323G&gt;A(p.Arg108His)</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.85_86insC(p.Leu29Profs*16</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Codons 27/28 (+C) beta0])</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.892G&gt;A(p.Ala298Thr)</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.979T&gt;C(p.Phe327Leu)</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1208A&gt;G(p.Tyr403Cys)</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1657T&gt;C(p.Tyr553His)</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2909G&gt;A(p.Gly970Asp)</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1700G&gt;A(p.Arg567Gln)</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.186+1G&gt;A</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2180T&gt;C(p.Leu727Pro)</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1159A&gt;C(p.Thr387Pro)</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2168A&gt;G(p.His723Arg)</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.865G&gt;A(p.Gly289Arg)</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.250G&gt;A(p.Ala84Thr)</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.632C&gt;T(p.Pro211Leu)</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.176_191delGCTGCAAGAACGTGTG(p.Gly59Alafs*18)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.904+1G&gt;A</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2304_2305insC(p.Met769Hisfs*26)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1707+5G&gt;A</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.427T&gt;C(p.<em>143Glnext</em>31</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Hb Constant Spring])</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.217dupA(p.Ser73Lysfs*2</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Codons 71/72 (+A) beta0])</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1975G&gt;C(p.Val659Leu)</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.-100G&gt;A(</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[-50 (G&gt;A) beta+])</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.326G&gt;A(p.Cys109Tyr)</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1223G&gt;A(p.Arg408Gln)</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.295C&gt;T(p.Arg99Cys)</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.286G&gt;A(p.Asp96Asn)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.311A&gt;T(p.Gln104Leu)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.928G&gt;A(p.Asp310Asn)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.728G&gt;A(p.Arg243Gln)</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1133G&gt;A(p.Arg378His)</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.525_526insA(p.Val176Serfs*28)</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.424C&gt;T(p.Arg142*)</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.567dupT(p.Ile190Tyrfs*13)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1432G&gt;A(p.Gly478Arg)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1195C&gt;T(p.Arg399*)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3188G&gt;A(p.Trp1063*)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.648dupT(p.Glu217*)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1208G&gt;A(p.Arg403Gln)</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1064G&gt;A(p.Arg355His)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.482G&gt;A(p.Arg161Gln)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2621C&gt;T(p.Ala874Val)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.925T&gt;G(p.Trp309Gly)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.997+1G&gt;T</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.510T&gt;A(p.His170Gln)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1426A&gt;G(p.Asn476Asp)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.852C&gt;A(p.Phe284Leu)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2936A&gt;C(p.Asp979Ala)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1328G&gt;A(p.Arg443His)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.527G&gt;A(p.Arg176Gln)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.407G&gt;A(p.Arg136His)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1060G&gt;A(p.Gly354Ser)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.532G&gt;A(p.Gly178Arg)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.367G&gt;A(p.Gly123Arg)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3325C&gt;T(p.Arg1109*)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.155A&gt;G(p.Asn52Ser)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.508_511dupAACG(p.Ala171Glufs*40)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.611A&gt;G(p.Tyr204Cys)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.379C&gt;T(p.Leu127Phe)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1817G&gt;A(p.Trp606*)</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.84-291A&gt;G</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.389A&gt;T(p.Asp130Val)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3884C&gt;T(p.Ala1295Val)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.754T&gt;C(p.Ser252Pro)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1108-3C&gt;G</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1099C&gt;T(p.Gln367*)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1562C&gt;T(p.Pro521Leu)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1958C&gt;A(p.Thr653Asn)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.416G&gt;A(p.Ser139Asn)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.449_452delCTGA(p.Thr150Argfs*4)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.599C&gt;A(p.Ser200*)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1454C&gt;G(p.Thr485Ser)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.782_783delAA(p.Gln261Argfs*8)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1244-2A&gt;C</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.907delT(p.Ser303Profs*38)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.98C&gt;T(p.Ala33Val)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2249C&gt;T(p.Pro750Leu)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.671G&gt;A(p.Arg224Gln)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2391_2392delTC(p.Arg798Serfs*35)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1197A&gt;T(p.Val399Val)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2907A&gt;C(p.Ala969Ala)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1777-1G&gt;C</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.808-3C&gt;G</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3982G&gt;A(p.Ala1328Thr)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2416+1G&gt;T</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3809A&gt;G(p.Asn1270Ser)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2694-2_2694-1delAG</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1657C&gt;T(p.Arg553*)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1399G&gt;C(p.Gly467Arg)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.80A&gt;G(p.Gln27Arg)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.331C&gt;T(p.Arg111*)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2002G&gt;A(p.Gly668Arg)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.248G&gt;A(p.Arg83His)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.377T&gt;C(p.Leu126Pro</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb Quong Sze II])</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.139G&gt;T(p.Glu47*)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1211T&gt;C(p.Met404Thr)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1349C&gt;A(p.Thr450Lys)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1361delG(p.Gly454Valfs*63)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1327C&gt;T(p.Arg443Cys)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.461C&gt;A(p.Pro154His)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1692_1693insA(p.Cys565Metfs*9)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3587A&gt;G(p.Asp1196Gly)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.960G&gt;A(p.Trp320*)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.8272delG(p.Val2758Serfs*28)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.398_399delAA(p.Gln133Argfs*5)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1586C&gt;T(p.Thr529Met)</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.377T&gt;C(p.Leu126Pro</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb Quong Sze])</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.838_839insC(p.Leu280Profs*11)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.846+2T&gt;C</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.218G&gt;A(p.Gly73Glu)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.589G&gt;A(p.Gly197Arg)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2238G&gt;C(p.Trp746Cys)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.257G&gt;A(p.Arg86Gln)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.580A&gt;G(p.Asn194Asp)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.442-1G&gt;A</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.737G&gt;A(p.Arg246His)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3451C&gt;T(p.Arg1151Cys)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2183A&gt;G(p.Asn728Ser)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1720G&gt;A(p.Gly574Arg)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.79G&gt;A(p.Glu27Lys</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb E beta+])</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.565C&gt;T(p.Arg189Cys)</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2662A&gt;C(p.Thr888Pro)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1344_1345insC(p.Gly449Argfs*124)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.64C&gt;T(p.Gln22*)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2369T&gt;C(p.Leu790Pro)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3187-2A&gt;G</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3715G&gt;T(p.Val1239Phe)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.446delA(p.Asn149Thrfs*35)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1238G&gt;C(p.Arg413Pro)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.262delG(p.Val88Phefs*14)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1843G&gt;A(p.Gly615Arg)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.826G&gt;C(p.Asp276His)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.394C&gt;T(p.Arg132*)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1227A&gt;C(p.Leu409Phe)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1081T&gt;C(p.Trp361Arg)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2828G&gt;A(p.Gly943Asp)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1156C&gt;G(p.Arg386Gly)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.152G&gt;A(p.Arg51Gln)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.593C&gt;T(p.Pro198Leu)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.729_730insTT(p.Asp244Leufs*39)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1865G&gt;A(p.Gly622Asp)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m.1494C&gt;T</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.796C&gt;T(p.Pro266Ser)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.450+2T&gt;C</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.648delC(p.Ser217Profs*22)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.470G&gt;C(p.Trp157Ser)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.4519-2delA</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1547_1548insC(p.Ser517Phefs*10)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.5G&gt;A(p.Trp2*)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.158G&gt;A(p.Arg53His)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2972C&gt;T(p.Thr991Met)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.315C&gt;G(p.Tyr105*)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2029C&gt;T(p.Arg677*)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1118T&gt;A(p.Met373Lys)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.4599T&gt;G(p.Tyr1533*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.79G&gt;A(p.Glu27Lys</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[HbE])</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1316_1317insG(p.Met440Tyrfs*23)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3788_3790delTCT(p.Phe1263del)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3477+2T&gt;C</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1139C&gt;T(p.Thr380Met)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.490C&gt;T(p.Arg164*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.4755+1G&gt;A</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2335G&gt;T(p.Glu779*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2800-1G&gt;C</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.341T&gt;A(p.Val114Glu</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[Hb Twin Peaks])</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.682C&gt;T(p.Arg228*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1426T&gt;C(p.<em>476Glnext</em>51)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2162C&gt;T(p.Thr721Met)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1017_1018insG(p.His340Alafs*3)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2086C&gt;T(p.Gln696*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.814G&gt;A(p.Gly272Arg)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1832T&gt;C(p.Leu611Pro)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.524G&gt;T(p.Arg175Leu)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1558C&gt;T(p.Arg520Trp)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1082C&gt;T(p.Pro361Leu)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2044C&gt;T(p.Arg682*)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3062C&gt;T(p.Pro1021Leu)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.4303delC(p.Gln1435Lysfs*275)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.341T&gt;A(p.Val114Glu</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[Hb New York])</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1255C&gt;T(p.Arg419Trp)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2620C&gt;T(p.Arg874*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.998A&gt;G(p.Tyr333Cys)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.35G&gt;T(p.Gly12Val)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.457C&gt;T(p.Arg153*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1117C&gt;T(p.Arg373*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1087T&gt;C(p.Ser363Pro)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2662G&gt;T(p.Glu888*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2489C&gt;T(p.Thr830Met)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2957C&gt;T(p.Ser986Phe)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1766+5G&gt;T</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.3955C&gt;T(p.Arg1319*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1353+2_1353+6delTTAGT</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.35delG(p.Gly12Valfs*2)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.3634G&gt;T(p.Val1212Leu)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1720G&gt;A(p.Ala574Thr)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1301C&gt;A(p.Ala434Asp)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.755dupA(p.His252Glnfs*6)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1671_1672delAG(p.Gly558Serfs*33)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1226G&gt;A(p.Arg409His)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.722delG(p.Arg241Profs*100)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2228C&gt;T(p.Pro743Leu)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.928G&gt;A(p.Gly310Arg)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.533G&gt;A(p.Arg178His)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1935C&gt;A(p.Asp645Glu)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.655A&gt;G(p.Met219Val)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.263T&gt;G(p.Leu88*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1006_1007delCA(p.Gln336Glufs*48)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2476C&gt;T(p.Arg826*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1927G&gt;A(p.Gly643Arg)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.700C&gt;T(p.Arg234Cys)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1762+1G&gt;A</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.186_187insCA(p.Asp63Glnfs*18)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2237G&gt;C(p.Trp746Ser)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.842_849dupTCCCCGCA(p.His284Serfs*18)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1190C&gt;T(p.Ser397Leu)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.874G&gt;A(p.Gly292Arg)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.984_986delCTT(p.Phe328del)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">–THAI</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1837C&gt;T(p.Arg613*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.56_57delTG(p.Val19Glyfs*48)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.357+1G&gt;T</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.2974G&gt;C(p.Gly992Arg)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.2614C&gt;T(p.Arg872*)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.257C&gt;G(p.Thr86Arg)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c.1349C&gt;T(p.Thr450Met)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c.1079C&gt;T(p.Ala360Val)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chinese</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="随访结果分析" class="level3">
+<h3 class="anchored" data-anchor-id="随访结果分析">随访结果分析</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./data_analysis_first.html" class="pagination-link" aria-label="携带率分析第一版">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">携带率分析第一版</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
